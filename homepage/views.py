@@ -22,7 +22,7 @@ def authorDetail(request, author_id):
                   {"recipes": recipes, "author": author})
 
 
-def addAuthor(request):
+def add_author(request):
     if request.method == "POST":
         form = AddAuthorForm(request.POST)
         if form.is_valid():
@@ -37,7 +37,7 @@ def addAuthor(request):
         "form": form, "heading": "Add Author"})
 
 
-def add_recipe_view(request):
+def add_recipe(request):
     if request.method == "POST":
         form = AddRecipeForm(request.POST)
         if form.is_valid():
