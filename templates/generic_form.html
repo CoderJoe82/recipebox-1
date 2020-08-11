@@ -5,36 +5,38 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js" integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous"></script>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Recipe Box</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/addauthor/">Add Author</a>
-        <a class="nav-link" href="/addrecipe/">Add Recipe</a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a 
+            {% if request.path == '/addauthor/' %}
+                class="nav-link active"
+            {% else %}
+                class="nav-link"
+            {% endif %} 
+            href="/addauthor/">Add Author</a>
+        <a 
+            {% if request.path == '/addrecipe/' %}
+                class="nav-link active"
+            {% else %}
+                class="nav-link"
+            {% endif %}
+            href="/addrecipe/">Add Recipe</a>
       </div>
     </div>
   </nav>
 
 <div class="container">
-
-    <h1>{{ title }}</h1>
-    <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          Recipes
-        </div>
-        <ul class="list-group list-group-flush">
-            {% for recipe in data %}
-                <li class="list-group-item"><a href="/recipe/{{ recipe.id}}"> {{recipe.title}} </a></li>
-            {% endfor %}
-        </ul>
-      </div>
-
-
-    
+    <h1> {{ heading }}</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
 
 </div>
