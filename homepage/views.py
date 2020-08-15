@@ -70,26 +70,6 @@ def add_recipe(request):
         "form": form, "heading": "Add Recipe"})
 
 
-# def signup_view(request):
-#     if request.method == "POST":
-#         form = SignupForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             new_user = User.objects.create_user(
-#                 username=data.get("username"),
-#                 password=data.get("password")
-#             )
-#             Author.objects.create(
-#                 name=data.get("username"),
-#                 bio=data.get("bio"),
-#                 user=new_user
-#             )
-#             login(request, new_user)
-#             return HttpResponseRedirect(reverse("homepage"))
-#     form = SignupForm()
-#     return render(request, "generic_form.html", {"form": form})
-
-
 def login_view(request):
     if request.method == "POST":
         form = LoginForm(request.POST)

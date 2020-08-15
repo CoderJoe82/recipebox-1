@@ -14,9 +14,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="/"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/"> <i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
         <a class="nav-link" href="/addauthor/"><i class="fas fa-user-plus"></i> Add Author</a>
-        <a class="nav-link" href="/addrecipe/"><i class="fas fa-plus-circle"></i> Add Recipe</a>
+        <a class="nav-link active" href="/addrecipe/"><i class="fas fa-plus-circle"></i> Add Recipe</a>
       </div>
       <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
@@ -31,20 +31,3 @@
   </nav>
 
 <div class="container">
-    <h1>Recipe</h1>
-    <div class="card" style="width: 22rem;">
-        <div class="card-body">
-          <h4 class="card-title">{{ recipe.title }}</h4>
-          <h5><a class="card-link" href="/author/{{ recipe.author.id }}">{{recipe.author.name}}</a></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Time Required: {{ recipe.time_required}}</h6>
-          <h6>Description:</h6>
-          <p class="card-text">{{ recipe.description }}</p>
-          <h6>Instructions:</h6>
-          <p class="card-text">{{ recipe.instructions }}</p>
-          
-          
-        </div>
-      </div>
-   
-    
-</div>
